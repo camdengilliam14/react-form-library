@@ -1,6 +1,6 @@
 {
   "name": "react-form-library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a library to provide common form helpers, such as updating field properties or validating field requirements, to your application.",
   "main": "index.js",
   "scripts": {},
