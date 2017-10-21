@@ -4,14 +4,18 @@ This directory contains the project that implements a solution for sharing commo
 #### Form (wrapper function)
 Provides an update property to use for your form fields.
 ###### 'Form' Function Parameters
-Table of paramters that the wrapper function takes.
+
+Table of parameters that the wrapper function takes.
+
 | Params        | Type          | Description                                           |
 | ------------- |:--------------| ------------------------------------------------------|
 | component     | Component     | The component to wrap.                                |
 | formKey       | String        | The object key of your form object declared in state. |
 
 ###### Provided Props
+
 Table of props the wrapper function provides to the component.
+
 | Props          | Type          | Description                                          |
 | -------------  |:--------------| -----------------------------------------------------|
 | updateProperty | Component     | Function to update form field with new value.        |
@@ -108,13 +112,16 @@ class Class extends React.Component {
 ### ValidateForm (wrapper function)
 Provides form validation on submit to your form
 ###### ValidateForm Function Parameters
-Table of paramaters the ValidateForm function takes.
+
+Table of parameters the ValidateForm function takes.
+
 | Params        | Type          | Description                                          |
 | ------------- |:--------------| -----------------------------------------------------|
 | component     | Component     | The component to wrap                                |
 
 
 ###### Provided Props
+
 Table of props the wrapper function provides to the component.
 
 | Props           | Type          | Description                                          |
@@ -124,13 +131,16 @@ Table of props the wrapper function provides to the component.
 | resetValidation | Func          | The function to reset the formErrors object          |
 
 ###### 'validateForm' Function Parameters
+
 Table of paramaters the validateForm function takes.
+
 | Params         | Type          | Description                         |
 | -------------- |:--------------| ------------------------------------|
 | form           | Object        | The form object.                    |
 | requiredFields | Object        | The required fields to be validated |
 
  ###### 'requiredFields' Supported Keys
+
  Table of keys validateForm recongizes.
 
 | Key            | Type          | Description                                                     |
@@ -140,7 +150,9 @@ Table of paramaters the validateForm function takes.
 | validate       | Func          | Custom validation function.                                     |
 
 ###### 'validate' Function
+
 Custom validate function properties.
+
 | Attr.          | Type          | Description                                         |
 | -------------- |:--------------| ----------------------------------------------------|
 | param          | Any           | The value to validate against.                      |
