@@ -1,9 +1,9 @@
-import Form from './src/Form'
-import ValidateForm from './src/FormValidation'
+import Form from './Form'
+import ValidateForm from './FormValidation'
 
-import Input from './src/components/Input'
-import Select from './src/components/Select'
-import TextArea from './src/components/TextArea'
+import Input from './components/Input'
+import Select from './components/Select'
+import TextArea from './components/TextArea'
 
 export {Form}
 export {ValidateForm}
