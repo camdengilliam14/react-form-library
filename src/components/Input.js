@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class Input extends React.Component {
-  constructor (props {
+  constructor (props) {
     super(props)
 		this.state = {isFocused: false}
   }
@@ -53,11 +53,11 @@ class Input extends React.Component {
         {label ?
 					<label className={labelClasses.join(' ')} htmlFor={id}>
 						{label}
-					</label>
+					</label> : null
 				}
         <input
           className={inputClasses.join(' ')}
-        	...this.props
+        	{...this.props}
 					onBlur={this.onBlur.bind(this)}
           onChange={this.onChange.bind(this)}
 					onFocus={this.onFocus.bind(this)}

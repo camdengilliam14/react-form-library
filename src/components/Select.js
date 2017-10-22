@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class Select extends React.Component {
-  constructor (props {
+  constructor (props) {
     super(props)
 		this.state = {isFocused: false}
   }
@@ -50,11 +50,11 @@ class Select extends React.Component {
         {label ?
 					<label className={labelClasses.join(' ')} htmlFor={id}>
 						{label}
-					</label>
+					</label> : null
 				}
         <select
           className={inputClasses.join(' ')}
-        	...this.props
+        	{...this.props}
           onChange={this.onChange.bind(this)}
 					onFocus={this.onFocus.bind(this)}
         >
@@ -69,7 +69,7 @@ class Select extends React.Component {
               )
             })
           }
-
+        </select>
       </div>
     )
   }
