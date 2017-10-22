@@ -48,6 +48,7 @@ class Input extends React.Component {
 			if (inputErrorClass) inputClasses.push(inputErrorClass)
 		}
 
+    const input = this.props
     return (
 			<div className={containerClasses.join(' ')}>
         {label ?
@@ -57,10 +58,14 @@ class Input extends React.Component {
 				}
         <input
           className={inputClasses.join(' ')}
-        	{...this.props}
+          id={input.id}
+          name={input.name}
 					onBlur={this.onBlur.bind(this)}
           onChange={this.onChange.bind(this)}
 					onFocus={this.onFocus.bind(this)}
+          placeholder={input.placeholder}
+          type={input.type}
+          value={input.value}
         />
       </div>
     )
@@ -73,7 +78,7 @@ Input.propTypes = {
 	containerErrorClass: PropTypes.string,
 	id: PropTypes.string,
 	inputClass: PropTypes.string,
-	inputActiveClass: PropTypes.stirng,
+	inputActiveClass: PropTypes.string,
 	inputErrorClass: PropTypes.string,
 	label: PropTypes.string,
 	labelClass: PropTypes.string,

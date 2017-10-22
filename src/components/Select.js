@@ -44,7 +44,8 @@ class Select extends React.Component {
 			if (labelErrorClass) labelClasses.push(labelErrorClass)
 			if (inputErrorClass) inputClasses.push(inputErrorClass)
 		}
-
+    
+    const input = this.props
     return (
 			<div className={containerClasses.join(' ')}>
         {label ?
@@ -54,13 +55,15 @@ class Select extends React.Component {
 				}
         <select
           className={inputClasses.join(' ')}
-        	{...this.props}
+          id={input.id}
+          name={input.name}
           onChange={this.onChange.bind(this)}
 					onFocus={this.onFocus.bind(this)}
+          value={input.value}
         >
           <option value=''>{placeholder || 'Select...'}</option>
           {
-            select.options.map((option,index)=>{
+            this.props.options.map((option,index)=>{
               return (
                 <option
                   key={index}
@@ -81,7 +84,7 @@ Select.propTypes = {
 	containerErrorClass: PropTypes.string,
 	id: PropTypes.string,
 	inputClass: PropTypes.string,
-	inputActiveClass: PropTypes.stirng,
+	inputActiveClass: PropTypes.string,
 	inputErrorClass: PropTypes.string,
 	label: PropTypes.string,
 	labelClass: PropTypes.string,
@@ -90,7 +93,7 @@ Select.propTypes = {
 	name: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onFocus: PropTypes.func,
-  options: PropTypes.Araay.isRequired,
+  options: PropTypes.array.isRequired,
 	placeholder: PropTypes.string,
 	value: PropTypes.oneOfType([
 		PropTypes.string,
