@@ -22,7 +22,7 @@ Table of props the wrapper function provides to the component.
 
 ###### 'updateProperty' Function Parameters
 
-Table of paramters that the updateProperty function takes.
+Table of parameters that the updateProperty function takes.
 
 | Params        | Type         | Description                                         |
 | ------------- |:-------------| ----------------------------------------------------|
@@ -286,7 +286,7 @@ class Class extends React.Component {
         inputActiveClass="active"
         inputErrorClass="error"
         label="First Name"
-        labelActiveClass="input-label"
+        labelClass="input-label"
         labelActiveClass="active"
         labelErrorClass="error"
         name="profile.first_name"
@@ -364,7 +364,7 @@ class Class extends React.Component {
         inputActiveClass="active"
         inputErrorClass="error"
         label="Select Value"
-        labelActiveClass="input-label"
+        labelClass="input-label"
         labelActiveClass="active"
         labelErrorClass="error"
         name="selectValue"
@@ -435,7 +435,7 @@ class Class extends React.Component {
         inputActiveClass="active"
         inputErrorClass="error"
         label="Biography"
-        labelActiveClass="input-label"
+        labelClass="input-label"
         labelActiveClass="active"
         labelErrorClass="error"
         name="profile.bio"
@@ -470,7 +470,7 @@ class InputField extends React.Component {
         inputClass="form-input"
         inputActiveClass="active"
         inputErrorClass="error"
-        labelActiveClass="input-label"
+        labelClass="input-label"
         labelActiveClass="active"
         labelErrorClass="error"
         {...this.props}

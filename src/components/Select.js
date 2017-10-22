@@ -33,10 +33,10 @@ class Select extends React.Component {
 		if (labelClass) labelClasses.push(labelClass)
 		if (inputClass) inputClasses.push(inputClass)
 
-		if (this.state.active) {
-			if (containerActiveClass) containerClasses.push(containerActiveClass)
-			if (labelActiveClass) containerClasses.push(labelActiveClass)
-			if (inputActiveClass) containerClasses.push(inputActiveClass)
+		if (this.state.isFocused) {
+      if (containerActiveClass) containerClasses.push(containerActiveClass)
+			if (labelActiveClass) labelClasses.push(labelActiveClass)
+			if (inputActiveClass) inputClasses.push(inputActiveClass)
 		}
 
 		if (this.props.error ) {
@@ -44,7 +44,7 @@ class Select extends React.Component {
 			if (labelErrorClass) labelClasses.push(labelErrorClass)
 			if (inputErrorClass) inputClasses.push(inputErrorClass)
 		}
-    
+
     const input = this.props
     return (
 			<div className={containerClasses.join(' ')}>
