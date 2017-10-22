@@ -162,6 +162,9 @@ Custom validate function properties.
 ##### Usage
 Ex.
 ```
+import React from 'react'
+import {ValidateForm} from 'react-form-library'
+
 const requiredFields = {
     "profile.first_name": {
       type: 'required'
@@ -225,8 +228,294 @@ class Class extends React.Component {
 
 export default ValidateForm(Class)
 ```
+
+## Components
+### Input
+Form input field.
+###### Input Props
+Input props.
+| Props                 | Type            | Description                                          |
+| ----------------------| :---------------| -----------------------------------------------------|
+| containerClass        | String          | Class to style the input container.                  |
+| containerActiveClass  | String          | Class to style the input container when input is active. Input sets the active class onFocus. Input removes the active class onBlur.|
+| containerErrorClass   | String          | Class to style the input container when the error prop is set to true. |
+| error                 | Boolean         | Flag indicating whether form validation failed. Sets error classes when true. |
+| id                    | String          | Id of the input form element.                        |
+| inputClass            | String          | Class to style the input form element.               |
+| inputActiveClass      | String          | Class to style the input form element when input is active. Input sets the active class onFocus. Input removes the active class onBlur.|
+| inputErrorClass       | String          | Class to style the input form element when the error prop is set to true. |
+| label                 | String          | Label text for the form element.                     |                   
+| labelClass            | String          | Class to style the label on the input form element.  |
+| labelActiveClass      | String          | Class to style the label on the input form element when input is active. Input sets the active class onFocus. Input removes the active class onBlur.|
+| inputErrorClass       | String          | Class to style the label on the input form element when the error prop is set to true. |
+| name                  | String          | Name of the input form element. Should be the same as the form field key.              |
+| onBlur                | Func            | Custom onBlur function.                              |
+| onChange              | Func            | onChange prop provided by Form library.              |
+| onFocus               | Func            | Custom onFocus function.                             |
+| placeholder           | String          | Placeholder text for the form input.                 |
+| type                  | String          | Form input type.                                     |
+| value                 | String, Number, Date | Value of the input field.                       |
+
+##### Usage
+Ex.
+```
+import React from 'react'
+import {Input, Form, ValidateForm} from 'react-form-library'
+class Class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      form: {
+        profile: {
+          first_name: ''
+        }
+      }
+    }
+  }
+  render () {
+    const {form} = this.state
+    const {formErrors, updateProperty} = this.props
+    return (
+      <Input
+        containerClass="input-container"
+        containerActiveClass="active"
+        containerErrorClass="error"
+        error={formErrors.profile && formErrors.profile.first_name}
+        id="first_name"
+        inputClass="form-input"
+        inputActiveClass="active"
+        inputErrorClass="error"
+        label="First Name"
+        labelActiveClass="input-label"
+        labelActiveClass="active"
+        labelErrorClass="error"
+        name="profile.first_name"
+        onBlur={() => console.log("onBlur")}
+        onChange={updateProperty}
+        onFocus={() => console.log("onFocus")}
+        placeholder="First Name"
+        type="text"
+        value={form.profile.first_name}
+      />
+    )
+  }
+}
+
+export default ValidateForm(Form(Class, 'form'))
+```
+
+### Select
+Form select field.
+###### Select Props
+Select props.
+| Props                 | Type            | Description                                          |
+| ----------------------| :---------------| -----------------------------------------------------|
+| containerClass        | String          | Class to style the select container.                 |
+| containerActiveClass  | String          | Class to style the select container when select is active. Select sets the active class onFocus. Select removes the active class onBlur.|
+| containerErrorClass   | String          | Class to style the select container when the error prop is set to true. |
+| error                 | Boolean         | Flag indicating whether form validation failed. Sets error classes when true. |
+| id                    | String          | Id of the select form element.                       |
+| inputClass            | String          | Class to style the select form element.              |
+| inputActiveClass      | String          | Class to style the select form element when select is active. Select sets the active class onFocus. Input removes the active class onChange.|
+| inputErrorClass       | String          | Class to style the select form element when the error prop is set to true. |
+| label                 | String          | Label text for the form element.                     |                   
+| labelClass            | String          | Class to style the label on the select form element. |
+| labelActiveClass      | String          | Class to style the label on the select form element when select is active. Select sets the active class onFocus. Select removes the active class onChange.|
+| inputErrorClass       | String          | Class to style the label on the select form element when the error prop is set to true. |
+| name                  | String          | Name of the select form element. Should be the same as the form field key.              |
+| onChange              | Func            | onChange prop provided by Form library.              |
+| onFocus               | Func            | Custom onFocus function.                             |
+| options               | Array           | Select options. Should be an array of objects. {value, name}. If 'value' is not set, select looks for an 'id'. Else it uses 'name' as the onChange value.}
+| placeholder           | String          | First select option label text. Defaults to Select...|
+| value                 | String, Number, Date | Value of the input field.                       |
+
+##### Usage
+Ex.
+```
+import React from 'react'
+import {Select, Form, ValidateForm} from 'react-form-library'
+
+const options = [
+  {value: 1, name: 'Value 1'},
+  {value: 2, name: 'Value 2'},
+  {value: 3, name: 'Value 3'}
+]
+
+class Class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      form: {
+        selectValue: ''
+      }
+    }
+  }
+  render () {
+    const {form} = this.state
+    const {formErrors, updateProperty} = this.props
+    return (
+      <Select
+        containerClass="input-container"
+        containerActiveClass="active"
+        containerErrorClass="error"
+        error={formErrors.selectValue}
+        id="selectValue"
+        inputClass="form-input"
+        inputActiveClass="active"
+        inputErrorClass="error"
+        label="Select Value"
+        labelActiveClass="input-label"
+        labelActiveClass="active"
+        labelErrorClass="error"
+        name="selectValue"
+        onChange={updateProperty}
+        onFocus={() => console.log("onFocus")}
+        options={options}
+        placeholder="Choose a Value..."
+        value={form.selectValue}
+      />
+    )
+  }
+}
+
+export default ValidateForm(Form(Class, 'form'))
+```
+### TextArea
+Form textarea field.
+###### Input Props
+TextArea props.
+| Props                 | Type            | Description                                          |
+| ----------------------| :---------------| -----------------------------------------------------|
+| containerClass        | String          | Class to style the textarea container.               |
+| containerActiveClass  | String          | Class to style the textarea container when textarea is active. TextArea sets the active class onFocus. TextArea removes the active class onBlur.|
+| containerErrorClass   | String          | Class to style the textarea container when the error prop is set to true. |
+| error                 | Boolean         | Flag indicating whether form validation failed. Sets error classes when true. |
+| id                    | String          | Id of the textarea form element.                        |
+| inputClass            | String          | Class to style the textarea form element.               |
+| inputActiveClass      | String          | Class to style the textarea form element when textarea is active. TextArea sets the active class onFocus. TextArea removes the active class onBlur.|
+| inputErrorClass       | String          | Class to style the textarea form element when the error prop is set to true. |
+| label                 | String          | Label text for the form element.                     |                   
+| labelClass            | String          | Class to style the label on the textarea form element.  |
+| labelActiveClass      | String          | Class to style the label on the textarea form element when textarea is active. TextArea sets the active class onFocus. TextArea removes the active class onBlur.|
+| inputErrorClass       | String          | Class to style the label on the textarea form element when the error prop is set to true. |
+| name                  | String          | Name of the textarea form element. Should be the same as the form field key.              |
+| onBlur                | Func            | Custom onBlur function.                              |
+| onChange              | Func            | onChange prop provided by Form library.              |
+| onFocus               | Func            | Custom onFocus function.                             |
+| placeholder           | String          | Placeholder text for the form textarea.              |
+| value                 | String          | Value of the input field.                            |
+
+##### Usage
+Ex.
+```
+import React from 'react'
+import {TextArea, Form, ValidateForm} from 'react-form-library'
+class Class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      form: {
+        profile: {
+          bio: ''
+        }
+      }
+    }
+  }
+  render () {
+    const {form} = this.state
+    const {formErrors, updateProperty} = this.props
+    return (
+      <TextArea
+        containerClass="input-container"
+        containerActiveClass="active"
+        containerErrorClass="error"
+        error={formErrors.profile && formErrors.profile.bio}
+        id="bio"
+        inputClass="form-input"
+        inputActiveClass="active"
+        inputErrorClass="error"
+        label="Biography"
+        labelActiveClass="input-label"
+        labelActiveClass="active"
+        labelErrorClass="error"
+        name="profile.bio"
+        onBlur={() => console.log("onBlur")}
+        onChange={updateProperty}
+        onFocus={() => console.log("onFocus")}
+        placeholder="Biography"
+        value={form.profile.bio}
+      />
+    )
+  }
+}
+
+export default ValidateForm(Form(Class, 'form'))
+```
+
+#### Recommended Usage of Components
+It is recommended that you wrap these components in your own component, defining the styles in the component wrapper. This way, you do not have to provide style classes to every form element you use.
+Ex.
+
+```
+import React from 'react'
+import {Input} from 'react-form-library'
+class InputField extends React.Component {
+  render () {
+
+    return (
+      <Input
+        containerClass="input-container"
+        containerActiveClass="active"
+        containerErrorClass="error"
+        inputClass="form-input"
+        inputActiveClass="active"
+        inputErrorClass="error"
+        labelActiveClass="input-label"
+        labelActiveClass="active"
+        labelErrorClass="error"
+        ...this.props
+      />
+    )
+  }
+}
+
+export default InputField
+
+class Class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      form: {
+        profile: {
+          first_name: ''
+        }
+      }
+    }
+  }
+  render () {
+    const {form} = this.state
+    const {formErrors, updateProperty} = this.props
+    return (
+      <InputField
+        error={formErrors.profile && formErrors.profile.first_name}
+        label="First Name"
+        name="profile.first_name"
+        onBlur={() => console.log("onBlur")}
+        onChange={updateProperty}
+        onFocus={() => console.log("onFocus")}
+        placeholder="First Name"
+        value={form.profile.first_name}
+      />
+    )
+  }
+}
+export default ValidateForm(Form(Class, 'form'))
+```
+
+
+
 ## License
-Copyright (2017) 
+Copyright (2017)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions
 
