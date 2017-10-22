@@ -473,7 +473,7 @@ class InputField extends React.Component {
         labelActiveClass="input-label"
         labelActiveClass="active"
         labelErrorClass="error"
-        ...this.props
+        {...this.props}
       />
     )
   }
