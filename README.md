@@ -235,7 +235,7 @@ Form input field.
 ###### Input Props
 Input props.
 | Props                 | Type            | Description                                          |
-| ----------------------| :---------------| -----------------------------------------------------|
+| ----------------------| :-------------- | ---------------------------------------------------- |
 | containerClass        | String          | Class to style the input container.                  |
 | containerActiveClass  | String          | Class to style the input container when input is active. Input sets the active class onFocus. Input removes the active class onBlur.|
 | containerErrorClass   | String          | Class to style the input container when the error prop is set to true. |
@@ -323,6 +323,7 @@ Select props.
 | labelActiveClass      | String          | Class to style the label on the select form element when select is active. Select sets the active class onFocus. Select removes the active class onChange.|
 | inputErrorClass       | String          | Class to style the label on the select form element when the error prop is set to true. |
 | name                  | String          | Name of the select form element. Should be the same as the form field key.              |
+| onBlur                | Func            | Custom onBlur function.                              |
 | onChange              | Func            | onChange prop provided by Form library.              |
 | onFocus               | Func            | Custom onFocus function.                             |
 | options               | Array           | Select options. Should be an array of objects. {value, name}. If 'value' is not set, select looks for an 'id'. Else it uses 'name' as the onChange value.}

@@ -7,6 +7,10 @@ class Select extends React.Component {
 		this.state = {isFocused: false}
   }
 
+  onBlur (event) {
+    this.setState({isFocused: false})
+		if (this.props.onBlur) this.props.onBlur()
+  }
 
   onChange (event) {
     this.props.onChange(event.target.name, event.target.value)
@@ -57,6 +61,7 @@ class Select extends React.Component {
           className={inputClasses.join(' ')}
           id={input.id}
           name={input.name}
+          onBlur={this.onBlur.bind(this)}
           onChange={this.onChange.bind(this)}
 					onFocus={this.onFocus.bind(this)}
           value={input.value}
@@ -91,6 +96,7 @@ Select.propTypes = {
 	labelActiveClass: PropTypes.string,
 	labelErrorClass: PropTypes.string,
 	name: PropTypes.string.isRequired,
+  onBlur: Props.func,
 	onChange: PropTypes.func.isRequired,
 	onFocus: PropTypes.func,
   options: PropTypes.array.isRequired,
