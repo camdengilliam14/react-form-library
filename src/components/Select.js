@@ -96,7 +96,7 @@ Select.propTypes = {
 	labelActiveClass: PropTypes.string,
 	labelErrorClass: PropTypes.string,
 	name: PropTypes.string.isRequired,
-  onBlur: Props.func,
+  onBlur: PropTypes.func,
 	onChange: PropTypes.func.isRequired,
 	onFocus: PropTypes.func,
   options: PropTypes.array.isRequired,
