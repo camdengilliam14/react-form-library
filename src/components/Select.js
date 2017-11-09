@@ -14,7 +14,6 @@ class Select extends React.Component {
 
   onChange (event) {
     this.props.onChange(event.target.name, event.target.value)
-    this.setState({isFocused: false})
   }
 
 	onFocus () {
