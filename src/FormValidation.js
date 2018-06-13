@@ -87,8 +87,8 @@ export default function ValidateForm (Component) {
         } else {
           errors = this.traverseNested(errors, key)
           const cmd = `errors.${key}=null`
-          const setter = new Function('errors', 'key', 'message', cmd)
-          setter(errors, key, message, cmd)
+          const setter = new Function('errors', 'key', 'value', cmd)
+          setter(errors, key, null, cmd)
         }
       })
 
