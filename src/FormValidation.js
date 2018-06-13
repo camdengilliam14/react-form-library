@@ -94,14 +94,14 @@ export default function ValidateForm (Component) {
 
       this.setState({formErrors: Object.assign(this.state.formErrors, errors)})
 
-      let hasError= false
+      let noError= true
       Object.keys(errors).forEach(key => {
         if (errors[key]) {
-          hasError = true
+          noError = false
         }
       })
 
-      return hasError
+      return noError
     }
 
     /*
