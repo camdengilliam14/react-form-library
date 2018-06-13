@@ -95,7 +95,7 @@ export default function ValidateForm (Component) {
 
       this.setState({formErrors: errors})
 
-      const isValid = isEmptyObj(errors)
+      const isValid = this.isEmptyObj(errors)
 
       return isValid
     }
@@ -103,12 +103,12 @@ export default function ValidateForm (Component) {
     /*
     * Determine if object is empty
     */
-    function isEmptyObj (object) {
+    isEmptyObj (object) {
       let isEmpty = true
 
       Object.keys(object).forEach(key => {
         if (object[key]) {
-          let empty = typeof object[key] === 'object' ? isEmptyObj(object[key]) : false
+          let empty = typeof object[key] === 'object' ? this.isEmptyObj(object[key]) : false
           if (!empty) isEmpty = false
         }
       })
