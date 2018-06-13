@@ -26,7 +26,8 @@ export default function ValidateForm (Component) {
     * @param [Object] requiredFields. The required fields to be validated.
     */
     validateForm (form, requiredFields) {
-      let errors = {}
+      let errors = this.state.formErrors
+      
       Object.keys(requiredFields).forEach((key, index) => {
         const type = requiredFields[key].type
         const value = key.split('.').reduce((o, i) => o[i], form) // allow dot notation
@@ -92,7 +93,7 @@ export default function ValidateForm (Component) {
         }
       })
 
-      this.setState({formErrors: Object.assign(this.state.formErrors, errors)})
+      this.setState({formErrors: errors})
 
       let noError= true
       Object.keys(errors).forEach(key => {
