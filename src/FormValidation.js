@@ -87,8 +87,9 @@ export default function ValidateForm (Component) {
         }
       })
 
+      this.setState({formErrors: Object.assign(this.state.formErrors, errors)})
+
       if (Object.keys(errors).length > 0) {
-        this.setState({formErrors: errors})
         return false
       }
       return true
