@@ -27,7 +27,7 @@ export default function ValidateForm (Component) {
     */
     validateForm (form, requiredFields) {
       let errors = this.state.formErrors
-      
+
       Object.keys(requiredFields).forEach((key, index) => {
         const type = requiredFields[key].type
         const value = key.split('.').reduce((o, i) => o[i], form) // allow dot notation
@@ -95,14 +95,25 @@ export default function ValidateForm (Component) {
 
       this.setState({formErrors: errors})
 
-      let noError= true
-      Object.keys(errors).forEach(key => {
-        if (errors[key]) {
-          noError = false
+      const isValid = isEmptyObj(errors)
+
+      return isValid
+    }
+
+    /*
+    * Determine if object is empty
+    */
+    function isEmptyObj (object) {
+      let isEmpty = true
+
+      Object.keys(object).forEach(key => {
+        if (object[key]) {
+          let empty = typeof object[key] === 'object' ? isEmptyObj(object[key]) : false
+          if (!empty) isEmpty = false
         }
       })
 
-      return noError
+      return isEmpty
     }
 
     /*
